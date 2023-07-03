@@ -6,7 +6,7 @@ import { MessagesService } from 'src/app/messages/messages.service';
 import { Course } from '../model/course-model';
 import { CoursesStore } from '../service/courses-store';
 import { LoadingService } from 'src/app/loading/loading.service';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-course-dialog',
@@ -72,21 +72,22 @@ export class CourseDialogComponent {
 
         if (this.mode == 'update') {
 
-            this.coursesStore.updateCourse(course.id,course);
+            this.coursesStore.updateCourse(course.id,course)
+                .subscribe();
 
             this.dialogRef.close();
         } else if (this.mode == 'create') {
 
-            this.coursesStore.add(course)
-                .subscribe(
-                    newCourse => {
-
-                        console.log('New Course', newCourse);
-
-                        this.dialogRef.close();
-
-                    }
-                );
+            this.coursesStore.add(course)                    
+             this.dialogRef.close();
+                  
+               // .subscribe(
+               //     newCourse => {
+               //         console.log('New Course', newCourse);
+                        
+//
+                //    }
+              //  );
 
         }
 

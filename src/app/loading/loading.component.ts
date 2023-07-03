@@ -5,7 +5,7 @@ import {LoadingService} from './loading.service';
 @Component({
   selector: 'loading',
   templateUrl: './loading.component.html',
-  styleUrls: ['./loading.component.css']
+  styleUrls: ['./loading.component.scss']
 })
 export class LoadingComponent implements OnInit {
 

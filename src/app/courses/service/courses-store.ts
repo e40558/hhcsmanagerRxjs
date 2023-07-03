@@ -13,6 +13,7 @@ export class CoursesStore {
 
     private subjectCourses = new BehaviorSubject<Course[]>([]);
     courses$: Observable<Course[]> = this.subjectCourses.asObservable();
+    course: Course;
 
 
     constructor(
@@ -70,19 +71,39 @@ export class CoursesStore {
     }
 
     add(course:Course) {
+       const currentItems = this.subjectCourses.getValue();
+        
+      return this.http.post<Course>(`http://localhost:9000/api/courses/`, course)
+        
+        .subscribe(
+            data => {
+                const newCourse= <any>Object.values(data);
+                currentItems.push(newCourse[0])
+             this.subjectCourses.next(currentItems)
+            },
+            error => console.log('Could not create Course.')
+          );
+        
+    
+    }
+    delete(course : Course){
+        const currentItems = this.subjectCourses.getValue();
+      
+        currentItems.filter(item => item.id != course.id)
+        return this.http.delete<Course>(
+            `http://localhost:9000/api/courses/${course.id}`).subscribe(
+                data => {                    
+                    this.subjectCourses.next( currentItems.filter(item => item.id != course.id))
+                   }
+           
+           )
 
-        return this.http.post(`http://localhost:9000/api/courses/`, course)
-        .pipe(
-            catchError(err => {
-                const message = "Could not save course";
-                console.log(message, err);
-                this.messages.showErrors(message);
-                return throwError(err);
-            }),
-            shareReplay()
-        );
+            
+           
 
     }
+
+
 
 
     filterByCategory(category: string): Observable<Course[]> {

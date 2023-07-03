@@ -3,6 +3,7 @@ import { Course } from '../model/course-model';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
 import { defaultDialogConfig } from '../shared/default-dialog-config';
+import { CoursesStore } from '../service/courses-store';
 
 @Component({
   selector: 'courses-card-list',
@@ -19,7 +20,7 @@ export class CoursesCardListComponent {
 
 
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private coursesStore : CoursesStore) {
   }
 
   ngOnInit() {
@@ -48,5 +49,11 @@ export class CoursesCardListComponent {
   
 
 
-  onDeleteCourse(course){}
+onDeleteCourse(course:Course) {
+
+  this.coursesStore.delete(course);
+      
+
+
+}
 }

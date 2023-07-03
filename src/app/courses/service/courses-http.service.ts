@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
 import { Course } from '../model/course-model';
@@ -13,6 +13,21 @@ export class CoursesService {
 
     constructor(private http:HttpClient) {
 
+    }
+    findLessons(
+        courseId:number, filter = '', sortOrder = 'asc',
+        pageNumber = 0, pageSize = 3):  Observable<Lesson[]> {
+
+        return this.http.get(`http://localhost:9000/api/courses/175/lessons`, {
+            params: new HttpParams()
+                //.set('courseId', courseId.toString())
+                .set('filter', filter)
+                .set('sortOrder', sortOrder)
+                .set('pageNumber', pageNumber.toString())
+                .set('pageSize', pageSize.toString())
+        }).pipe(
+            map(res =>  res["lessons"])
+        );
     }
 
     loadCourseById(courseId:number) {
