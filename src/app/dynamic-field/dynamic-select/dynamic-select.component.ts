@@ -1,0 +1,53 @@
+import { Component, Input } from '@angular/core';
+import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { filter, takeWhile } from 'rxjs';
+import { MessagesService } from 'src/app/messages/messages.service';
+
+@Component({
+  selector: 'app-dynamic-select',
+  templateUrl: './dynamic-select.component.html',
+  styleUrls: ['./dynamic-select.component.scss']
+})
+export class DynamicSelectComponent {
+  @Input() field: any;
+  formName: FormGroup;
+  alive = true;
+
+  constructor(
+    private messageService: MessagesService,
+    private formGroupDirective: FormGroupDirective) {
+    this.formName = formGroupDirective.control;
+  }
+
+
+  ngAfterViewInit(): void {
+    this.listenForLinkData();
+  }
+
+  ngOnDestroy() {
+    this.alive = false;
+  }
+
+  listenForLinkData() {
+    if (!this.field?.link) {
+      return;
+    }
+    this.messageService.message$.pipe(
+      filter(v => v.link === this.field.link),
+      takeWhile(() => this.alive)
+    ).subscribe((v) => {
+      this.field.options = v.data
+    })
+  }
+
+  changedValue(value: string) {
+    if (!this.field.provideData) {
+      return;
+    }
+    this.messageService.messageSubject.next({
+      link: this.field.fieldName,
+      data: this.field.provideData.filter(v => v.sourceValue === value)
+    })
+  }
+
+}

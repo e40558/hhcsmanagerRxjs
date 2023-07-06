@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CoursesStore } from './courses/service/courses-store';
@@ -20,12 +20,13 @@ export class AppComponent implements OnInit{
 
   constructor(
     private router: Router,
-    public store: CoursesStore
+    public store: CoursesStore,
+    private cdr: ChangeDetectorRef
     ) {
 
   }
   ngOnInit(): void {
-   
+  
   }
 
   logout() {

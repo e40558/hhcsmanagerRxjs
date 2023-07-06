@@ -29,16 +29,35 @@ import { LoadingComponent } from './loading/loading.component';
 import { MessagesComponent } from './messages/messages.component';
 import { LoadingService } from './loading/loading.service';
 import { MessagesService } from './messages/messages.service';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { DynamicFieldComponent } from './dynamic-field/dynamic-field.component';
+import { DynamicCheckboxComponent } from './dynamic-field/dynamic-checkbox/dynamic-checkbox.component';
+import { DynamicInputComponent } from './dynamic-field/dynamic-input/dynamic-input.component';
+import { DynamicRadioComponent } from './dynamic-field/dynamic-radio/dynamic-radio.component';
+import { DynamicSelectComponent } from './dynamic-field/dynamic-select/dynamic-select.component';
+import { DynamicErrorComponent } from './dynamic-form/dynamic-error/dynamic-error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoadingComponent,
-    MessagesComponent
+    MessagesComponent,
+    RegisterComponent,
+    DynamicFormComponent,
+    DynamicFieldComponent,
+    DynamicCheckboxComponent,
+    DynamicRadioComponent,
+    DynamicSelectComponent,
+    DynamicInputComponent,
+    DynamicErrorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    
 
     MatMenuModule,
     MatButtonModule,

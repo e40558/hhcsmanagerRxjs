@@ -1,0 +1,7 @@
+fields: [];
+model = {
+        name: '',
+        lastName: '',
+        address: '',
+        age: '',
+ };
