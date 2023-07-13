@@ -38,9 +38,16 @@ import { DynamicInputComponent } from './dynamic-field/dynamic-input/dynamic-inp
 import { DynamicRadioComponent } from './dynamic-field/dynamic-radio/dynamic-radio.component';
 import { DynamicSelectComponent } from './dynamic-field/dynamic-select/dynamic-select.component';
 import { DynamicErrorComponent } from './dynamic-form/dynamic-error/dynamic-error.component';
+import { CardComponent } from './card/card.component';
+import { AppHomeComponent } from './app-home/app-home.component';
+import { ConsumersCardComponent } from './components/consumers/consumers-card/consumers-card.component';
+import { ConsumersImageComponent } from './components/consumers/consumers-image/consumers-image.component';
+import { CourseImageComponent } from './components/courses/course-image/course-image.component';
+import { CourseCardComponent } from './components/courses/course-card/course-card.component';
 
 @NgModule({
   declarations: [
+    AppHomeComponent,
     AppComponent,
     LoadingComponent,
     MessagesComponent,
@@ -51,7 +58,14 @@ import { DynamicErrorComponent } from './dynamic-form/dynamic-error/dynamic-erro
     DynamicRadioComponent,
     DynamicSelectComponent,
     DynamicInputComponent,
-    DynamicErrorComponent
+    DynamicErrorComponent,
+    CardComponent,
+    ConsumersCardComponent,
+    ConsumersImageComponent,
+    CourseImageComponent,
+    CourseCardComponent,
+    
+    
   ],
   imports: [
     BrowserModule,

@@ -102,10 +102,6 @@ export class CoursesStore {
            
 
     }
-
-
-
-
     filterByCategory(category: string): Observable<Course[]> {
         return this.courses$
             .pipe(

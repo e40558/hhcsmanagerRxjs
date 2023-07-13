@@ -1,9 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
+import { WidgetComponent } from './widget/widget.component';
+import { AppHomeComponent } from './app-home/app-home.component';
+import { CardComponent } from './card/card.component';
 
 const routes: Routes = [
- {path: 'register' , component:RegisterComponent},
+  {
+    path: "",
+    redirectTo: "/home",
+    pathMatch: "full"
+  },
+  
+  {path:"home", component:AppHomeComponent},
+  {path:"widget" , component:WidgetComponent},
+
+  {path: 'register' , component:RegisterComponent},
   {
     path: 'consumers',
     loadChildren: () => import('./consumers/consumers.module').then(m => m.ConsumersModule),

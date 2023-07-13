@@ -31,7 +31,7 @@ export class CoursesService {
     }
 
     loadCourseById(courseId:number) {
-       return this.http.get<Course>(`/api/courses/${courseId}`)
+       return this.http.get<Course>(`http://localhost:9000/api/courses/${courseId}`)
             .pipe(
               shareReplay()
             );
@@ -59,8 +59,8 @@ export class CoursesService {
     }
 
 
-    saveCourse(courseId:string, changes: Partial<Course>):Observable<any> {
-        return this.http.put(`/api/courses/${courseId}`, changes)
+    saveCourse(courseId:number, changes: Partial<Course>):Observable<any> {
+        return this.http.put(`http://localhost:9000/api/courses/${courseId}`, changes)
             .pipe(
                 shareReplay()
             );

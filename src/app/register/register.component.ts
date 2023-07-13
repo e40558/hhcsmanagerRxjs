@@ -65,6 +65,7 @@ export class RegisterComponent implements OnInit {
       value: "email",
       type: "checkbox",
     },
+    
     subscriptionType: {
       label: "Suscription Type",
       value: "premium",
@@ -134,6 +135,66 @@ export class RegisterComponent implements OnInit {
         }
       ]
     }
+  };
+
+
+  consumerModel =
+  {
+    firstname: {
+      type: "text",
+      value: "",
+      label: "FirstName",
+      rules: {
+        required: true,
+      }
+    },
+    lastname: {
+      type: "text",
+      value: "",
+      label: "LastName"
+    },
+    medicaidNum: {
+      type: "text",
+      value: "",
+      label: "medicaidNum"
+    },
+    medicareNum: {
+      type: "text",
+      value: "",
+      label: "medicareNum"
+    },
+
+  
+    dateOfBirth: {
+      type: "date",
+      value: "",
+      label: "dateOfBirth",
+    },
+
+    Location: {
+      label: "Location",
+      value: "",
+      type: "select",
+      options: [
+        {
+          label: "Pick one",
+          value: "",
+        },
+        {
+          label: "Southwood",
+          value: "1",
+        },
+        {
+          label: "West",
+          value: "2",
+        },
+        {
+          label: "Mentor",
+          value: "3",
+        }
+      ],
+    },
+
   };
 
 

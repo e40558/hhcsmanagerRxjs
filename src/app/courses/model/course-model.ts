@@ -4,13 +4,16 @@ export interface Course {
     url:string;
     iconUrl: string;
     courseListIcon: string;
-    title: string;
+    title:string;    
     longDescription?: string;
     category: string;
     lessonsCount: number;
     promo: boolean;
    
   }
+
+
+
 
 
   
