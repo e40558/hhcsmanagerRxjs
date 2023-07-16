@@ -4,6 +4,10 @@ export interface Course {
     url:string;
     iconUrl: string;
     courseListIcon: string;
+    titles: {
+      description: string,
+      longDescription: string
+    }
     title:string;    
     longDescription?: string;
     category: string;

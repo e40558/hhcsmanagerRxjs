@@ -1,4 +1,6 @@
-<com-course-card></com-course-card>
 
-
-
+<div *ngIf="(courses$  | async) as courses ">
+        
+   <com-course-card (courseChanged)="reloadCourses()" [courses]="courses">
+   </com-course-card>
+</div>

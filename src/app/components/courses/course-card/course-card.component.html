@@ -1,13 +1,14 @@
 
 
-<div class="courses">
+<div class="courses" *ngFor="let course of courses">
     <div class="course-card">
        <div class="course-title">
-          Angular Coure Deep Dive
+          {{course.title}}
        </div>  
-       <img width="300" alt="Angular Logo" src="https://angular-university.s3-us-west-1.amazonaws.com/course-images/typescript-bootcamp-2.jpg">
+       <img #courseImage width="300" alt="Angular Logo" [src]="course.iconUrl">
        <div class="course-description">
-        A detail walk-though of the most important parts of Angular
+         {{course.longDescription}}
        </div>
-    </div>
+    
+    <button (click)="onCourseViewed()">View Course</button>
 </div>

@@ -4,13 +4,16 @@ import { RegisterComponent } from './register/register.component';
 import { WidgetComponent } from './widget/widget.component';
 import { AppHomeComponent } from './app-home/app-home.component';
 import { CardComponent } from './card/card.component';
+import { LessonsComponent } from './lessons/lessons.component';
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/home",
+    redirectTo: "/lessons",
     pathMatch: "full"
   },
+  
+  {path:"lessons", component:LessonsComponent},
   
   {path:"home", component:AppHomeComponent},
   {path:"widget" , component:WidgetComponent},

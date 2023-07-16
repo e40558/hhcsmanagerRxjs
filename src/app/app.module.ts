@@ -44,6 +44,8 @@ import { ConsumersCardComponent } from './components/consumers/consumers-card/co
 import { ConsumersImageComponent } from './components/consumers/consumers-image/consumers-image.component';
 import { CourseImageComponent } from './components/courses/course-image/course-image.component';
 import { CourseCardComponent } from './components/courses/course-card/course-card.component';
+import { LessonsComponent } from './lessons/lessons.component';
+import { LessonsListComponent } from './lessons/lessons-list/lessons-list.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { CourseCardComponent } from './components/courses/course-card/course-car
     ConsumersImageComponent,
     CourseImageComponent,
     CourseCardComponent,
+    LessonsComponent,
+    LessonsListComponent,
     
     
   ],

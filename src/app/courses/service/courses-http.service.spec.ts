@@ -2,7 +2,7 @@ import { TestBed } from "@angular/core/testing";
 import { CoursesService } from "./courses-http.service"
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing'
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { COURSES } from "server/db-data";
+import { COURSES } from "server/db-datarestore";
 import { Course } from "../model/course-model";
 
 fdescribe ("CoursesService", () =>{
